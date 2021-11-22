@@ -36,6 +36,12 @@ export default class Calculator extends Component {
             const currentOperation = this.state.operation
 
             const values = [...this.state.values]
+            
+            if (isNaN(values[0]) || !isFinite(values[0])){
+                this.clearMemory()
+                return
+            }
+        
             switch (currentOperation) {
                 case '+':
                     values[0] = values[0] + values[1]
